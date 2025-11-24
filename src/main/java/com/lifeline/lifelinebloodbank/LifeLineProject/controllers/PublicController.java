@@ -27,5 +27,8 @@ public class PublicController {
         return userService.registerNewUser(dtoUser);
     }
 
-    
+    @PostMapping(path = "/userlogin")
+    public String loginUser(@RequestBody UserDto userDto){
+        return userService.userLogin(userDto);
+    }
 }

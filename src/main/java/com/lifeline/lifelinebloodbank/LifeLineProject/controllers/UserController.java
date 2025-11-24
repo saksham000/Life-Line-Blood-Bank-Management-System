@@ -15,9 +15,6 @@ import com.lifeline.lifelinebloodbank.LifeLineProject.service.UserService;
 @RequestMapping(path = "/user")
 public class UserController {
 
-    // @Autowired
-    // private UserDto userDto;
-
     @Autowired
     private UserService  userService;
 
@@ -26,9 +23,10 @@ public class UserController {
         return "user API !";
     }
 
-    // @GetMapping(path = "/all-users")
-    // public List<UserEnt> allUsers(UserDto userDto){
-    //     return userService.getAllUsers();
-    // }
+    @GetMapping(path = "/all-users")
+    public List<UserEnt> allUsers(UserDto userDto){
+        return userService.getAllUsers();
+    }
+
 
 }

@@ -26,6 +26,9 @@ public class SpringSecurity {
     @Autowired
     private JwtFilter jwtFilter;
 
+    @Autowired
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -38,6 +41,7 @@ public class SpringSecurity {
                         .requestMatchers("/user/**").hasRole("USER")
                         .requestMatchers("/hospital/**").hasRole("HOSPITAL")
                         .anyRequest().authenticated())
+                        .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

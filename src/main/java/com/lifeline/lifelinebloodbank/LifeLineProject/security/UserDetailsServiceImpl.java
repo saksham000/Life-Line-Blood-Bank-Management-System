@@ -17,13 +17,6 @@ import com.lifeline.lifelinebloodbank.LifeLineProject.repository.AdminRepo;
 import com.lifeline.lifelinebloodbank.LifeLineProject.repository.HospitalRepo;
 import com.lifeline.lifelinebloodbank.LifeLineProject.repository.UserRepo;
 
-// import com.lms.lmsproject.LmsProject.repository.AdminRepo;
-// import com.lms.lmsproject.LmsProject.repository.TeacherRepo;
-// import com.lms.lmsproject.LmsProject.repository.UserEntRepo;
-// import com.lms.lmsproject.LmsProject.entity.Admin;
-// import com.lms.lmsproject.LmsProject.entity.Teacher;
-// import com.lms.lmsproject.LmsProject.entity.UserEnt;
-
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -86,8 +79,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .map(role -> role.name())
                 .toArray(String[]::new);
 
-        System.out
-                .println("Admin roles: !!!!!!!!!!!!!!!!!!!!_________________----------------" + Arrays.toString(roles));
         return User.builder()
                 .username(admin.getUserName())
                 .password(admin.getPassword())
